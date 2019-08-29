@@ -22,9 +22,13 @@
         
         <label for="name">Name:</label>
         <input type="text" id="name" name="user-name">
+
+        <div class="name-error error-message">Name field cannot be empty...</div>
         
         <label for="mail">Email:</label>
         <input type="email" id="mail" name="user-email">
+
+        <div class="email-error error-message">Has to be a valid email format...</div>
         
         <label for="title">Job Role</label>
         <select id="title" name="user-title">
@@ -34,7 +38,8 @@
           <option value="designer">Designer</option>          
           <option value="student">Student</option>
           <option value="other">Other</option>  
-        </select>           
+        </select>
+        <input type="text" id="other-title" placeholder="Your Job Role">           
       </fieldset>
       
       <fieldset class="shirt">
@@ -101,7 +106,9 @@
           <input type="checkbox" name="npm" data-day-and-time="Wednesday-T13:00:00-T16:00:00" data-cost="$100"> 
           npm Workshop — Wednesday 1pm-4pm, $100
         </label>
-                  	
+        
+        <div class="activities-error error-message">At least one activity has to be checked...</div>
+        
       </fieldset>
       <fieldset>
         <legend>Payment Info</legend>
@@ -153,7 +160,14 @@
             <option value="2018">2021</option>
             <option value="2019">2022</option>
             <option value="2020">2023</option>        		          
-          </select> 	                  	         
+          </select> 
+          
+          <div class="credit-card-number-error error-message">Has to be a valid Credit Card number...</div>
+
+          <div class="zip-code-error error-message">Has to be a valid Zip Code...</div>
+
+          <div class="cvv-error error-message">Has to be a valid CVV number...</div>
+        
         </div>
 
         <div id="paypal" class="paypal">

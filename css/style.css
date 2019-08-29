@@ -197,3 +197,20 @@ option {
 		clear: both;
 	}
 }
+
+input:focus,
+select:focus {
+	border: purple solid 3px;	
+}
+
+.notvalid {
+	text-decoration: line-through;
+	color: red;
+}
+
+.error-message {
+	color: red;
+	font-size: 12px;
+	margin-bottom: 10px;
+	display: none;
+}
