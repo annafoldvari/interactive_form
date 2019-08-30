@@ -96,7 +96,9 @@ function registerActivities() {
         let $clickedCheckbox = $(e.target);
         let $clickedTime = $clickedCheckbox.attr("data-day-and-time");
         
-        
+      // Loops through checkboxes adds "notvalid" class if it is an activity
+      // that is in the same time slot then the checked activity
+
         $checkboxes.each(function(i, checkbox) {
         
            if($(checkbox).attr("data-day-and-time") === $clickedTime && !$clickedCheckbox.is($(checkbox))) {
@@ -110,6 +112,8 @@ function registerActivities() {
            }
     
         });
+
+        // Shows total cost of checked activities
 
         if ($clickedCheckbox.prop('checked')) {
             let cost = parseInt($clickedCheckbox.attr('data-cost').slice(1), 10);
@@ -228,7 +232,7 @@ function isValidCVVNumber(cvvNumber) {
 
 function checkFormValid() {
 
-    $("form").submit(function(event) { 
+    $("form button[type=submit]").click(function(event) {
         let name = $("#name").val();
         let email = $("#mail").val();
         let $checkboxes =$("input[type='checkbox']");
