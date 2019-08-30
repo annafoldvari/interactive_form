@@ -1,102 +1,88 @@
-$("#name").focus();
+//Put the focus on the name input field.
 
-$("#title").on('change', function() {
-    if ($(this).val() === "other") {
-        $("#other-title").show(); 
-    } else {
-        $("#other-title").hide(); 
-    }
-})
-$("#title").trigger('change');
+function focusOnName() {
+    $("#name").focus();
+}
 
-$("#design").on('change', function() {
+//Adds extra input field if Other is selected on Job role section
+
+function setupOtherTitle() {
+    $("#title").on('change', function() {
+        if ($(this).val() === "other") {
+            $("#other-title").show(); 
+        } else {
+            $("#other-title").hide(); 
+        }
+    })
+    $("#title").trigger('change');
+}
+
+// Shows the right color options per design and hides the color section if no design selected
+
+function setupDesignSection() {
+    $("#design").on('change', function() {
     
-    if ($(this).val() === "js puns") {
-
-       if ($("option[value='nodesignselected']")) {
-            $("option[value='nodesignselected']").attr("hidden", true);
-            $("option[value='nodesignselected']").removeAttr("selected"); 
-       } 
-
-       $("option[value='tomato']").removeAttr("selected");  
-       $("option[value='cornflowerblue']").attr("selected", true);
-
-       $("option[value='cornflowerblue']").removeAttr("disabled");
-       $("option[value='cornflowerblue']").removeAttr("hidden");
-
-       $("option[value='darkslategrey']").removeAttr("disabled");
-       $("option[value='darkslategrey']").removeAttr("hidden");
-       
-       $("option[value='gold']").removeAttr("disabled");
-       $("option[value='gold']").removeAttr("hidden");
-
-
-       $("option[value='tomato']").attr("disbaled", true);
-       $("option[value='tomato']").attr("hidden", true);
-
-       $("option[value='steelblue']").attr("disbaled", true); 
-       $("option[value='steelblue']").attr("hidden", true); 
-
-       $("option[value='dimgrey']").attr("disbaled", true); 
-       $("option[value='dimgrey']").attr("hidden", true); 
-
-    } else if ($(this).val() === "heart js") {
-
-        if ($("option[value='nodesignselected']")) {
-            $("option[value='nodesignselected']").attr("hidden", true);
-            $("option[value='nodesignselected']").removeAttr("selected"); 
+        if ($(this).val() === "js puns") {
+    
+           $("#colors-js-puns").show();
+    
+           $("option[value='tomato']").removeAttr("selected");  
+           $("option[value='cornflowerblue']").attr("selected", true);
+    
+           $("option[value='cornflowerblue']").removeAttr("disabled");
+           $("option[value='cornflowerblue']").removeAttr("hidden");
+    
+           $("option[value='darkslategrey']").removeAttr("disabled");
+           $("option[value='darkslategrey']").removeAttr("hidden");
+           
+           $("option[value='gold']").removeAttr("disabled");
+           $("option[value='gold']").removeAttr("hidden");
+    
+    
+           $("option[value='tomato']").attr("disbaled", true);
+           $("option[value='tomato']").attr("hidden", true);
+    
+           $("option[value='steelblue']").attr("disbaled", true); 
+           $("option[value='steelblue']").attr("hidden", true); 
+    
+           $("option[value='dimgrey']").attr("disbaled", true); 
+           $("option[value='dimgrey']").attr("hidden", true); 
+    
+        } else if ($(this).val() === "heart js") {
+    
+            $("#colors-js-puns").show();
+    
+            $("option[value='cornflowerblue']").removeAttr("selected");
+            $("option[value='tomato']").attr("selected", true); 
+    
+            $("option[value='cornflowerblue']").attr("disbaled", true);
+            $("option[value='cornflowerblue']").attr("hidden", true);
+    
+            $("option[value='darkslategrey']").attr("disbaled", true); 
+            $("option[value='darkslategrey']").attr("hidden", true)
             
-       } 
+            $("option[value='gold']").attr("disbaled", true);
+            $("option[value='gold']").attr("hidden", true);
+    
+            $("option[value='tomato']").removeAttr("disabled");
+            $("option[value='tomato']").removeAttr("hidden");
+    
+            $("option[value='steelblue']").removeAttr("disabled");
+            $("option[value='steelblue']").removeAttr("hidden"); 
+    
+            $("option[value='dimgrey']").removeAttr("disabled");
+            $("option[value='dimgrey']").removeAttr("hidden"); 
+        } else {
+           $("#colors-js-puns").hide();
+        }
+    })
+    
+    $("#design").trigger('change');
 
-        $("option[value='cornflowerblue']").removeAttr("selected");
-        $("option[value='tomato']").attr("selected", true); 
+}
 
-        $("option[value='cornflowerblue']").attr("disbaled", true);
-        $("option[value='cornflowerblue']").attr("hidden", true);
-
-        $("option[value='darkslategrey']").attr("disbaled", true); 
-        $("option[value='darkslategrey']").attr("hidden", true)
-        
-        $("option[value='gold']").attr("disbaled", true);
-        $("option[value='gold']").attr("hidden", true);
-
-        $("option[value='tomato']").removeAttr("disabled");
-        $("option[value='tomato']").removeAttr("hidden");
-
-        $("option[value='steelblue']").removeAttr("disabled");
-        $("option[value='steelblue']").removeAttr("hidden"); 
-
-        $("option[value='dimgrey']").removeAttr("disabled");
-        $("option[value='dimgrey']").removeAttr("hidden"); 
-    } else {
-       $("option[value='tomato']").removeAttr("selected");
-       $("option[value='cornflowerblue']").removeAttr("selected");
-
-       $("#color").append($("<option value='nodesignselected'>Please select a T-shirt theme</option>"));
-
-       $("option[value='nodesignselected']").attr("selected", true);
-       
-       $("option[value='tomato']").attr("disbaled", true);
-       $("option[value='tomato']").attr("hidden", true);
-
-       $("option[value='steelblue']").attr("disbaled", true); 
-       $("option[value='steelblue']").attr("hidden", true); 
-
-       $("option[value='dimgrey']").attr("disbaled", true); 
-       $("option[value='dimgrey']").attr("hidden", true); 
-
-       $("option[value='cornflowerblue']").attr("disbaled", true);
-       $("option[value='cornflowerblue']").attr("hidden", true);
-
-       $("option[value='darkslategrey']").attr("disbaled", true); 
-       $("option[value='darkslategrey']").attr("hidden", true)
-        
-       $("option[value='gold']").attr("disbaled", true);
-       $("option[value='gold']").attr("hidden", true);
-    }
-})
-
-$("#design").trigger('change');
+//Makes possible to select only one activity per a certain time slot
+//Shows the total amount of costs of activities.
 
 function registerActivities() {
 
@@ -145,6 +131,9 @@ function registerActivities() {
     
 }
 
+//If page refreshed removes all ticks from checkboxes thus making sure
+//total cost cannot go into minus.
+
 function resetToEmptyCheckboxes() {
     let $checkboxes = $("input[type='checkbox']");
 
@@ -153,6 +142,9 @@ function resetToEmptyCheckboxes() {
     });
 
 }
+
+//Shows the right section per chosen payment menthod
+//Selects Credit Card payment as default
 
 function paymentSectionSetup() {
     const $creditCardInfo = $("#credit-card");
@@ -186,10 +178,13 @@ function paymentSectionSetup() {
 
 }
 
+//Checks for valid email address
 
 function isValidEmail(email) {
-    return /^[^@]+@[^@.]+\.[a-z]+$/i.test(email); 
+    return /^[^@]+@[^@.]+\.[a-z]+(\.[a-z]+)?$/i.test(email); 
 }
+
+//Checks if at least one activity checkbox is checked
 
 function isValidActivity($checkboxes) {
     let isValid = false;
@@ -201,17 +196,35 @@ function isValidActivity($checkboxes) {
     return isValid;
 }
 
+//Checks for valid credit card number
+
 function isValidCreditCardNumber(creditCardNumber) {
-    return /\d{13,16}/.test(creditCardNumber); 
+    let validation = '';
+
+    if(!creditCardNumber) {
+        return validation = 'empty';
+    }else if (!/\d{13,16}/.test(creditCardNumber)) {
+        return validation = 'notgoodpattern';
+    }else if (/\d{13,16}/.test(creditCardNumber)) {
+        return validation = 'valid';
+    } 
 }
+
+//Checks for valid zip code
 
 function isValidZipCode(zipCode) {
     return /\d{5}/.test(zipCode); 
 }
 
+//Checks for valid cvv number
+
 function isValidCVVNumber(cvvNumber) {
     return /\d{3}/.test(cvvNumber); 
 }
+
+
+// Checks for form validation when submit button is sent
+// Shows the error messages in case there is a problem with validation
 
 function checkFormValid() {
 
@@ -248,11 +261,17 @@ function checkFormValid() {
             let zipCode = $("#zip").val();
             let cvv = $("#cvv").val();
 
-            if (!isValidCreditCardNumber(creditCardNumber)) {
+            if (isValidCreditCardNumber(creditCardNumber) === 'empty') {
                 event.preventDefault()
-                $(".credit-card-number-error").show(); 
+                $(".credit-card-number-error2").hide(); 
+                $(".credit-card-number-error1").show(); 
+            } else if (isValidCreditCardNumber(creditCardNumber) === 'notgoodpattern') {
+                event.preventDefault()
+                $(".credit-card-number-error1").hide();
+                $(".credit-card-number-error2").show(); 
             } else {
-                $(".credit-card-number-error").hide(); 
+                $(".credit-card-number-error1").hide();
+                $(".credit-card-number-error2").hide();  
             }
 
             if (!isValidZipCode(zipCode)) {
@@ -273,7 +292,34 @@ function checkFormValid() {
     });
 }
 
+//Checks in real time as typed whether the email address is valid
+
+function checkEmailRealTime() {
+    $('#mail').on('input', function() {
+
+        let email = $("#mail").val();
+
+        if(!isValidEmail(email)) {
+            event.preventDefault()
+            $(".email-error").show();
+        } else {
+            $(".email-error").hide();
+        }
+    });
+}
+
+focusOnName();
+
+setupOtherTitle();
+
+setupDesignSection();
+
 resetToEmptyCheckboxes();
+
 registerActivities();
+
 paymentSectionSetup();
+
 checkFormValid();
+
+checkEmailRealTime();
