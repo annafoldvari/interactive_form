@@ -39,13 +39,13 @@ function setupDesignSection() {
            $("option[value='gold']").removeAttr("hidden");
     
     
-           $("option[value='tomato']").attr("disbaled", true);
+           $("option[value='tomato']").attr("disabled", true);
            $("option[value='tomato']").attr("hidden", true);
     
-           $("option[value='steelblue']").attr("disbaled", true); 
+           $("option[value='steelblue']").attr("disabled", true); 
            $("option[value='steelblue']").attr("hidden", true); 
     
-           $("option[value='dimgrey']").attr("disbaled", true); 
+           $("option[value='dimgrey']").attr("disabled", true); 
            $("option[value='dimgrey']").attr("hidden", true); 
     
         } else if ($(this).val() === "heart js") {
@@ -55,13 +55,13 @@ function setupDesignSection() {
             $("option[value='cornflowerblue']").removeAttr("selected");
             $("option[value='tomato']").attr("selected", true); 
     
-            $("option[value='cornflowerblue']").attr("disbaled", true);
+            $("option[value='cornflowerblue']").attr("disabled", true);
             $("option[value='cornflowerblue']").attr("hidden", true);
     
-            $("option[value='darkslategrey']").attr("disbaled", true); 
+            $("option[value='darkslategrey']").attr("disabled", true); 
             $("option[value='darkslategrey']").attr("hidden", true)
             
-            $("option[value='gold']").attr("disbaled", true);
+            $("option[value='gold']").attr("disabled", true);
             $("option[value='gold']").attr("hidden", true);
     
             $("option[value='tomato']").removeAttr("disabled");
@@ -207,9 +207,9 @@ function isValidCreditCardNumber(creditCardNumber) {
 
     if(!creditCardNumber) {
         return validation = 'empty';
-    }else if (!/\d{13,16}/.test(creditCardNumber)) {
+    }else if (!/^\d{13,16}$/.test(creditCardNumber)) {
         return validation = 'notgoodpattern';
-    }else if (/\d{13,16}/.test(creditCardNumber)) {
+    }else if (/^\d{13,16}$/.test(creditCardNumber)) {
         return validation = 'valid';
     } 
 }
@@ -217,13 +217,13 @@ function isValidCreditCardNumber(creditCardNumber) {
 //Checks for valid zip code
 
 function isValidZipCode(zipCode) {
-    return /\d{5}/.test(zipCode); 
+    return /^\d{5}$/.test(zipCode); 
 }
 
 //Checks for valid cvv number
 
 function isValidCVVNumber(cvvNumber) {
-    return /\d{3}/.test(cvvNumber); 
+    return /^\d{3}$/.test(cvvNumber); 
 }
 
 
